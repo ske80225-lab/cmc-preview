@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMC | 株式会社コンピューターマネジメントセンター</title>
+  <meta name="description" content="株式会社コンピューターマネジメントセンター（CMC）は信頼の技術で社会に貢献します。">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ========================================
+  FIRST VIEW（fixed / z-index:0）
+  Figma: image12 (1366×749px)
+======================================== -->
+<section class="fv-section" aria-label="ファーストビュー">
+  <img
+    src="img/fv.png"
+    alt="CMC ファーストビュー"
+    class="fv-section__img"
+  >
+</section><!-- /.fv-section -->
+
+<!-- ========================================
+  4パネル（fixed / z-index:1）
+  scaleY:0 → scaleY:1  transform-origin:center bottom
+======================================== -->
+<div class="scroll-panels js-scroll-panels" aria-hidden="true">
+  <div class="scroll-panels__item"></div>
+  <div class="scroll-panels__item"></div>
+  <div class="scroll-panels__item"></div>
+  <div class="scroll-panels__item"></div>
+</div><!-- /.scroll-panels -->
+
+<!-- ========================================
+  スクロールコンテンツ（relative / z-index:2）
+  初期: translateY(100vh) opacity:0
+======================================== -->
+<div class="scroll-content js-scroll-content">
+
+  <!-- ABOUT: Figma image13 (1366×844px) -->
+  <section class="about-section" id="about" aria-label="About CMC">
+    <img
+      src="img/about.png"
+      alt="About CMC — 信頼の技術で、社会に貢献する。"
+      class="about-section__img"
+      loading="eager"
+    >
+  </section><!-- /.about-section -->
+
+</div><!-- /.scroll-content -->
+
+<script src="js/main.js"></script>
+</body>
+</html>

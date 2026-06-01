@@ -1,0 +1,114 @@
+/* ============================================================
+  0. リセット & ベース
+============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: #eef1f3; /* Aboutセクション背景色と統一 */
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================================
+  1. ファーストビュー
+  position:fixed / z-index:0
+  Figma: image12（1366×749px）を全画面カバー表示
+  ヘッダーは画像に含まれているため HTML ヘッダーなし
+============================================================ */
+
+.fv-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.fv-section__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* ============================================================
+  2. 4パネル（スクロールアニメーション）
+  position:fixed / z-index:1
+  ※ inouekabu.com .top-scroll-anime と同一構造
+  background-color: #eef1f3 = Aboutセクション背景色に一致
+  transform: scale(1.01, 0)  → 初期は非表示（高さゼロ）
+  transform-origin: center bottom → 下端から上へ展開
+============================================================ */
+
+.scroll-panels {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.scroll-panels__item {
+  flex: 1;
+  height: 100vh;
+  background-color: #eef1f3;
+  transform: scale(1.01, 0);
+  transform-origin: center bottom;
+}
+
+/* ============================================================
+  3. スクロールコンテンツ
+  position:relative / z-index:2
+  ※ inouekabu.com .top-scroll-anime__content と同一構造
+  初期: translateY(100vh) opacity:0
+  表示後: translateY(0)   opacity:1
+============================================================ */
+
+.scroll-content {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(100vh);
+}
+
+/* ============================================================
+  4. Aboutセクション
+  Figma: image13（1366×844px）を全幅表示
+============================================================ */
+
+.about-section {
+  position: relative;
+  width: 100%;
+  line-height: 0; /* img 下の余白を消す */
+}
+
+.about-section__img {
+  width: 100%;
+  height: auto;
+}
